@@ -21,20 +21,57 @@
 // value = "hi";
 // console.log(value+value2);
 // console.log(value);
-//
-var varr1 = prompt("Введите новое значение 1");
-var varr2 = prompt("Введите новое значение 2");
+// var varr1 = prompt("Введите новое значение 1");
+// var varr2 = prompt("Введите новое значение 2");
 // name1 = parseInt(name1);
 // name2 = parseInt(name2);
 //alert(name);
-function minus(var1, var2)
-{
-  console.log(var1-var2);
-}
-minus(varr1, varr2);
+// function minus(var1, var2)
+// {
+//   console.log(var1-var2);
+// }
+// minus(varr1, varr2);
 // function plus(val1, val2){
 // console.log(val1+val2);
 // }
 // plus(name1, name2);
+var znak = prompt("Введите знак:");
+var val1 = prompt("Введите первое число:");
+var val2 = prompt("Введите второе число:");
+var val3 = prompt("Введите третье число:");
+var v1;
+function minus(vall1, vall2, vall3)
+{
+v1 = val1 - val2 - val3;
+}
+function plus(vall1, vall2, vall3)
+{
+v1 = val1 + val2 + val3;
+}
+function multyply(vall1, vall2, vall3)
+{
+v1 = val1 * val2 * val3;
+}
+if(znak = "-")
+{
+  var a1;
+  var a2;
+  var a3;
+  a1 = parseInt(val1);
+  a2 = parseInt(val2);
+  a2 = parseInt(val3);
+  minus(val1, val2, val3);
+  alert(v1);
+}
+if(znak = "+")
+{
+  plus(val1, val2, val3);
+  alert(v1);
+}
+if(znak = "*")
+{
+  multyply(val1, val2, val3);
+  alert(v1);
+}
 </script>
 </html>
