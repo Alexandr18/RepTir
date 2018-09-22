@@ -14,10 +14,17 @@
 
 <script>
 var znak = prompt("Введите знак:");
-var val1 = prompt("Введите первое число:");
-var val2 = prompt("Введите второе число:");
-var val3 = prompt("Введите третье число:");
+if (znak != "+" || znak != "-" || znak != "*")
+{
+  alert("Нет такого знака!");
+}
+  var val1 = prompt("Введите первое число:");
+  var val2 = prompt("Введите второе число:");
+  var val3 = prompt("Введите третье число:");
 var v1;
+val1 = parseInt(val1);
+val2 = parseInt(val2);
+val3 = parseInt(val3);
 function minus(vall1, vall2, vall3)
 {
 v1 = val1 - val2 - val3;
@@ -32,21 +39,12 @@ v1 = val1 * val2 * val3;
 }
 switch (znak) {
   case "-":
-    val1 = parseInt(val1);
-    val2 = parseInt(val2);
-    val3 = parseInt(val3);
     minus(val1, val2, val3);
     break;
     case "+":
-      val1 = parseInt(val1);
-      val2 = parseInt(val2);
-      val3 = parseInt(val3);
       plus(val1, val2, val3);
       break;
     case "*":
-      val1 = parseInt(val1);
-      val2 = parseInt(val2);
-      val3 = parseInt(val3);
       multyply(val1, val2, val3);
       break;
   default:
