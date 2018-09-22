@@ -18,35 +18,52 @@ var val1 = prompt("Введите первое число:");
 var val2 = prompt("Введите второе число:");
 var val3 = prompt("Введите третье число:");
 var v1;
-var a1;
-var a2;
-var a3;
+// var a1;
+// var a2;
+// var a3;
 function minus(vall1, vall2, vall3)
 {
+  val1 = parseInt(val1);
+  val2 = parseInt(val2);
+  val2 = parseInt(val3);
 v1 = val1 - val2 - val3;
 }
 function plus(vall1, vall2, vall3)
 {
+  val1 = parseInt(val1);
+  val2 = parseInt(val2);
+  val2 = parseInt(val3);
 v1 = val1 + val2 + val3;
 }
 function multyply(vall1, vall2, vall3)
 {
+  val1 = parseInt(val1);
+  val2 = parseInt(val2);
+  val2 = parseInt(val3);
 v1 = val1 * val2 * val3;
 }
-if(znak = "-")
-{
-  a1 = parseInt(val1);
-  a2 = parseInt(val2);
-  a2 = parseInt(val3);
-  minus(a1, a2, a3);
-}
-else if(znak = "*")
-{
-  multyply(val1, val2, val3);
-}
-else if(znak = "+")
-{
-  plus(val1, val2, val3);
+switch (znak) {
+  case "-":
+    val1 = parseInt(val1);
+    val2 = parseInt(val2);
+    val2 = parseInt(val3);
+    minus(val1, val2, val3);
+    break;
+    case "+":
+      val1 = parseInt(val1);
+      val2 = parseInt(val2);
+      val2 = parseInt(val3);
+      plus(val1, val2, val3);
+      break;
+    case "*":
+      val1 = parseInt(val1);
+      val2 = parseInt(val2);
+      val2 = parseInt(val3);
+      multyply(val1, val2, val3);
+      break;
+  default:
+  v1 = 0;
+  break;
 }
 alert(v1);
 </script>
