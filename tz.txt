@@ -6,3 +6,9 @@
   1) спросить + или - или *
   2) запросить 3 значения
   3) вывести результат( aler())
+
+25.09.18
+1) Знать IF
+2) swith
+3) https://learn.javascript.ru/ifelse читать
+4) http://bootstrap-3.ru/bootstraptheme.php читать
