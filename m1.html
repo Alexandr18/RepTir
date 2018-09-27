@@ -1,0 +1,60 @@
+<html>
+<head>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <link href="styles/matesh.css" rel="stylesheet" />
+    <title>по теч</title>
+    <script>
+        function getValue(){
+                var v = document.getElementsByTagName("spd")[0];
+                var V = v.value;
+                var t = document.getElementsByTagName("time")[0];
+                var T = v.value;
+                var x = document.getElementsByTagName("rast")[0];
+                var X = v.value;
+                if (T == "") {
+                    T = X / V;
+                    $("#time").text(T);
+                }
+                if (X == "") {
+                    X = V * T;
+                    $("#rast").text(X);
+                }
+                if (V == "") {
+                    V = X / T;
+                    $("#spd").text(V);
+                }
+        }
+    </script>
+</head>
+<body>
+    <h2>Задачи на движение</h2>
+    <img src="image/zaloopleniymash.gif"
+<br />
+    <p>Напишите число в поле ввода или оставьте строчку пустой, если в условии задачи этого не дано.</p>
+    <p>Выберите что известно в задаче и что нужно найти:</p>
+    <div class="col-md-9 col-lg-9">
+        <h4>
+            Скорость =
+            <input type="text" id="spd" class="for m-control" style="text-align: right;" />
+        </h4>
+    </div>
+    <div class="col-md-9 col-lg-9">
+        <h4>
+            Расстояние =
+            <input type="text" id="rast" class="for m-control" style="text-align: right;" />
+        </h4>
+    </div>
+    <div class="col-md-9 col-lg-9">
+        <h4>
+            Время =
+            <input type="text" id="time" class="for m-control" style="text-align: right;" />
+        </h4>
+    </div>
+    <p>
+        <button class="col-md-4 col-lg-9" style="vertical-align: middle" onclick="getValue()" id="btnravno">Вычислить</button>
+    </p>
+</body>
+</html>
