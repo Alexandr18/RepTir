@@ -1,0 +1,256 @@
+<html>
+<head>
+    <title>The Calculator!</title>
+    <script src="scripts/jquery-3.2.1.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+
+            var a = 0;
+            var b = 0;
+            var c = 0;
+            var d = "";
+            var t = false;
+
+            // if ?/ 0 to clear all crome C + found bcsps cartinka ????
+
+            $(".btn-num").click(function () {
+
+                var num = $(this).text();
+                vvod(num);
+            });
+            //$("#btn1").click(function () {
+            //    vvod(1);
+            //});
+            //$("#btn2").click(function () {
+            //    vvod(2);
+            //});
+            //$("#btn3").click(function () {
+            //    vvod(3);
+            //});
+            //$("#btn4").click(function () {
+            //    vvod(4);
+            //});
+            //$("#btn5").click(function () {
+            //    vvod(5);
+            //});
+            //$("#btn6").click(function () {
+            //    vvod(6);
+            //});
+            //$("#btn7").click(function () {
+            //    vvod(7);
+            //});
+            //$("#btn8").click(function () {
+            //    vvod(8);
+            //});
+            //$("#btn9").click(function () {
+            //    vvod(9);
+            //});
+            //$("#btn0").click(function () {
+            //    vvod(0);
+            //});
+
+            $("#btntochka").click(function () {
+                vvod(".");
+            });
+
+            $(".btn-act").click(function () {
+                var act = $(this).text();
+                deystviya(act);
+            });
+
+            //$("#btnp").click(function () {
+            //    deystviya("+");
+            //});
+            //$("#btnm").click(function () {
+            //    deystviya("-");
+            //});
+            //$("#btnu").click(function () {
+            //    deystviya("*");
+            //});
+            //$("#btnr").click(function () {
+            //    deystviya("/");
+            //});
+
+            $("#btnback").click(function () {
+                var oldText = $("#num").val();
+                var newText = oldText.substr(0, oldText.length - 1);
+                $("#num").val(newText);
+            }); 
+
+            $("#btnravno").click(function () {
+                //var val = $("#num").val();
+                b = parseFloat($("#num").val());
+
+                if (d == "+") {
+                    c = a + b;
+                } else if (d == "-") {
+                    c = a - b;
+                } else if (d == "*") {
+                    c = a * b;
+                } else if (d == "/") {
+                    if (b != 0) {
+                        c = a / b;
+                    } else {
+                        c = "На ноль делить нельзя!";
+                    }
+                }
+
+                $("#result").text(a + " " + d + " " + b + " = " + c);
+                $("#num").val(c);
+                $("#btnravno").attr("disabled", "disabled");
+                $("#btntochka").attr("disabled, disabled");
+                $("#btnm").removeAttr("disabled");
+                $("#btnp").removeAttr("disabled");
+                $("#btnu").removeAttr("disabled");
+                $("#btnr").removeAttr("disabled");
+            });
+
+            $("#btnreset").click(function () {
+
+                a = 0;
+                b = 0;
+                c = 0;
+                d = "";
+                $("#result").text("0");
+                $("#btnravno").attr("disabled", "disabled");
+                $("#btntochka").attr("disabled", "disabled");
+                $("#btnm").attr("disabled", "disabled");
+                $("#btnp").attr("disabled", "disabled");
+                $("#btnu").attr("disabled", "disabled");
+                $("#btnr").attr("disabled", "disabled");
+            });
+
+            function vvod(num) {
+
+                var oldText = $("#num").val();
+                var newText = oldText + num;
+                $("#num").val(newText);
+                if (t == true) {
+                    $("#btnravno").removeAttr("disabled");
+                    $("#btnp").attr("disabled", "disabled");
+                    $("#btnr").attr("disabled", "disabled");
+                    $("#btnu").attr("disabled", "disabled");
+                    $("#btnm").attr("disabled", "disabled");
+                }
+                else
+                {
+                    $("#btnm").removeAttr("disabled");
+                    $("#btnp").removeAttr("disabled");
+                    $("#btnu").removeAttr("disabled");
+                    $("#btnr").removeAttr("disabled");
+                }                
+
+                if (newText.indexOf(".") == -1) {
+                    $("#btntochka").removeAttr("disabled");
+                }
+                else {
+                    $("#btntochka").attr("disabled", "disabled");
+                }
+            }
+
+            function deystviya(znak) {
+                var val = $("#num").val();
+                d = znak;
+                if (val != "") {
+                    a = parseFloat($("#num").val());
+                    t = true;
+
+                    $("#result").text(val + " " + d);
+                    $("#num").val("");
+                    $("#btntochka").attr("disabled", "disabled");
+                    $("#btnp").attr("disabled", "disabled");
+                    $("#btnr").attr("disabled", "disabled");
+                    $("#btnu").attr("disabled", "disabled");
+                    $("#btnm").attr("disabled", "disabled");
+                }
+            }
+        });
+    </script>
+    <style>
+        button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="text-align: center; width: 300px; margin: auto;">
+        <h1>
+            Calculator
+        </h1>
+        <form>
+            <div class="row">
+                <div class="col-md-9 col-lg-9">
+                    <p id="result" style="text-align: right;">&ensp;</p>
+                </div>
+                <!--<div class="col-md-3 col-lg-3" style="margin-top: 15px;"></div>-->
+                <div class="col-md-9 col-lg-9">
+                    <input type="text" id="num" disabled="disabled" class="form-control" style="text-align: right;" />
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btnback" class="btn btn-default"><span class="glyphicon glyphicon-step-backward"></span></button>
+                </div>
+                <div class="col-md-12 col-lg-12" style="margin-top: 15px;"></div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn1" class="btn btn-default btn-lg btn-num">1</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn2" class="btn btn-default btn-lg btn-num">2</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn3" class="btn btn-default btn-lg btn-num">3</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" disabled="disabled" id="btnp" class="btn btn-primary btn-lg btn-act">+</button>
+                </div>
+                <div class="col-md-12 col-lg-12" style="margin-top: 15px;"></div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn4" class="btn btn-default btn-lg btn-num">4</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn5" class="btn btn-default btn-lg btn-num">5</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn6" class="btn btn-default btn-lg btn-num">6</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" disabled="disabled" id="btnm" class="btn btn-primary btn-lg btn-act">-</button>
+                </div>
+                <div class="col-md-12 col-lg-12" style="margin-top: 15px;"></div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn7" class="btn btn-default btn-lg btn-num">7</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn8" class="btn btn-default btn-lg btn-num">8</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btn9" class="btn btn-default btn-lg btn-num">9</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" disabled="disabled" id="btnu" class="btn btn-primary btn-lg btn-act">*</button>
+                </div>
+                <div class="col-md-12 col-lg-12" style="margin-top: 15px;"></div>
+                <div class="col-md-6 col-lg-6">
+                    <button type="button" id="btn0" class="btn btn-default btn-lg btn-num">0</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" disabled="disabled" id="btntochka" class="btn btn-default btn-lg">.</button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" disabled="disabled" id="btnr" class="btn btn-primary btn-lg btn-act">/</button>
+                </div>
+                <div class="col-md-12 col-lg-12" style="margin-top: 15px;"></div>
+                <div class="col-md-9 col-lg-9">
+                    <button type="reset" id="btnreset" class="btn btn-warning btn-lg"><span class="glyphicon glyphicon-refresh"></span></button>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    <button type="button" id="btnravno" disabled="disabled" class="btn btn-success btn-lg">=</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
